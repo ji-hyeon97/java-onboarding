@@ -10,7 +10,47 @@ class Problem1 {
     private static final int exception = -1;
 
     public static int solution(List<Integer> pobi, List<Integer> crong) {
-        return 0;
+
+        Integer exception1 = exceptionOccur(pobi, crong);
+        if (exception1 != null){
+            return exception1;
+        }
+
+        int pobiValue = maxValue(pobi);
+        int crongValue = maxValue(crong);
+
+        if (pobiValue < crongValue){
+            return crongWin;
+        }
+
+        if (pobiValue > crongValue){
+            return pobiWin;
+        }
+
+        return draw;
+    }
+
+    private static Integer exceptionOccur(List<Integer> pobi, List<Integer> crong) {
+        if (pobi.size() != 2 || crong.size() !=2){
+            return exception;
+        }
+        if (Math.abs(pobi.get(1) - pobi.get(0)) != 1 || Math.abs(crong.get(1) - crong.get(0)) != 1){
+            return exception;
+        }
+        return null;
+    }
+
+    public static int maxValue(List<Integer> pageNumbers){
+        int sumValue = sum(pageNumbers);
+        int multipleValue = multiple(pageNumbers);
+
+        if(sumValue < multipleValue){
+            return multipleValue;
+        }
+
+        else{
+            return sumValue;
+        }
     }
 
     public static int sum(List<Integer> pageNumbers){
