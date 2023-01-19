@@ -1,8 +1,10 @@
 package onboarding;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -10,6 +12,31 @@ import static org.assertj.core.api.Assertions.assertThat;
 class ApplicationTest {
     @Nested
     class Problem1Test {
+
+        @Test
+        @DisplayName("리스트 각자리 수 더하기 연산")
+        void sum(){
+            List<Integer> pageNumbers = new ArrayList<>();
+            pageNumbers.add(97);
+            pageNumbers.add(98);
+
+            int answer = 17;
+
+            assertThat(Problem1.sum(pageNumbers)).isEqualTo(answer);
+        }
+
+        @Test
+        @DisplayName("리스트 각자리 수 곱하기 연산")
+        void multiply(){
+            List<Integer> pageNumbers = new ArrayList<>();
+            pageNumbers.add(97);
+            pageNumbers.add(98);
+
+            int answer = 72;
+
+            assertThat(Problem1.multiple(pageNumbers)).isEqualTo(answer);
+        }
+
         @Test
         void case1() {
             List<Integer> pobi = List.of(97, 98);
