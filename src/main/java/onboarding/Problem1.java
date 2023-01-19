@@ -37,6 +37,9 @@ class Problem1 {
         if (Math.abs(pobi.get(1) - pobi.get(0)) != 1 || Math.abs(crong.get(1) - crong.get(0)) != 1){
             return exception;
         }
+        if (pobi.get(0) == 0 || crong.get(0) == 0){
+            return exception;
+        }
         return null;
     }
 

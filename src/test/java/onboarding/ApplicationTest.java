@@ -54,8 +54,17 @@ class ApplicationTest {
         }
 
         @Test
+        @DisplayName("시작 면이나 마지막 면이 나오도록 책을 펼치지 않는다.")
         void case3() {
             List<Integer> pobi = List.of(99, 102);
+            List<Integer> crong = List.of(211, 212);
+            int result = -1;
+            assertThat(Problem1.solution(pobi, crong)).isEqualTo(result);
+        }
+
+        @Test
+        void case4(){
+            List<Integer> pobi = List.of(0, 1);
             List<Integer> crong = List.of(211, 212);
             int result = -1;
             assertThat(Problem1.solution(pobi, crong)).isEqualTo(result);
